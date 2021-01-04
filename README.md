@@ -9,7 +9,7 @@ In the Julia REPL (terminal):
 
 Then, to run and open a Pluto server in your default browser (using port 1234), again in the Julia REPL:
 
-<code>import Pluto</code>
+<code>import Pluto</code><br>
 <code>Pluto.run()</code>
 
 Pluto should open automatically in your default browser.
