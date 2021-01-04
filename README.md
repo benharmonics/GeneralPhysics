@@ -1,7 +1,7 @@
 # DiffusionFTCS
 Using Forward in Time, Centered in Space algorithm to solve the diffusion equation .
 
-Note that you will have to install Pluto in the Julia Package manager to use the @bind macro properly in a Pluto notebook.
+Note that you will have to install Pluto in the Julia Package manager to use the <code>@bind</code> macro properly in a Pluto notebook.
 
 In the Julia REPL (terminal):
 
