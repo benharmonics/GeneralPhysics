@@ -61,7 +61,7 @@ html"<h2>Boundary and Initial Conditions</h2><p>The default boundary conditions 
 begin
 	T = zeros(Float64, n)			# initialize temperature to zero everywhere
 	T[floor(Int8, n/2)] = 1.0/h 	# set delta spike in center of rod
-	xplot = (0.0:n-h)*h .- L/2 		# record x positions of all grid points
+	xplot = (0.0:n-1)*h .- L/2 		# record x positions of all grid points
 	iplot::Int64 = 1 				# counter used to count plots
 	maxsteps::Int64 = 300 			# maximum number of iterations
 	maxplots::Int64 = 50 			# number of snapshots to take
