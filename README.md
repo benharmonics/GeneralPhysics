@@ -10,8 +10,8 @@ Note that you will have to install Pluto in the Julia Package manager to use the
 
 In the Julia REPL (terminal):
 
-<code>using Pkg</code>
-<code>Pkg.add("Pluto")</code>
+<code>using Pkg</code><br>
+<code>Pkg.add("Pluto")</code><br>
 (There are other ways to do this)
 
 Then, to run and open a Pluto server in your default browser (using port 1234), again in the Julia REPL:
