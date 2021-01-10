@@ -5,7 +5,7 @@ Mostly (currently ONLY) Pluto.jl files, so you need Julia and Pluto to actually 
 ## dftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
 
-## neutrondiff.jl
+## ndftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the neutron diffusion equation (supercritical states).
 <hr>
 Based on projects I did for my Computational Physics class in Spring 2019.
