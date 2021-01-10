@@ -69,7 +69,7 @@ html"<h4>Finally we set up & execute our main FTCS algorithm:</h4>"
 
 # ╔═╡ 446c3d60-52b3-11eb-3f7a-777fb650bbde
 begin
-	n = zeros(Float64, N) 	# initialize zeros everywhere
+	n = zeros(Float64, N) 	# initialize neutron density=0 everywhere
 	n[N÷2] = 1/h 			# IC is a delta spike in the middle
 	xplot::Array{Float64, 1} = (0:h:L) .- L/2
 	maxsteps::Int64 = 300
@@ -105,7 +105,8 @@ surface(tplot, xplot, nplot, c=:thermal, title="Neutron Diffusion",
 # ╔═╡ aa5c5bd0-530a-11eb-3b31-298cca0ffbf1
 @gif for i ∈ 1:maxplots
 	plot(xplot, nplot[:, i], lw=3, legend=false, ylims=(0, nplot[N÷2, end]),
-	     title="Neutron Diffusion", xlabel="Position", ylabel="Neutron Density")
+	     title="Neutron Diffusion Over $(τ*maxsteps) Seconds", 
+		 xlabel="Position", ylabel="Neutron Density")
 end
 
 # ╔═╡ Cell order:
