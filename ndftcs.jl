@@ -71,7 +71,7 @@ html"<h4>Finally we set up & execute our main FTCS algorithm:</h4>"
 begin
 	n = zeros(Float64, N) 	# initialize zeros everywhere
 	n[N÷2] = 1/h 			# IC is a delta spike in the middle
-	xplot::Array{Float64, 1} = (0.0:h:L) .- L/2
+	xplot::Array{Float64, 1} = (0:h:L) .- L/2
 	maxsteps::Int64 = 300
 	maxplots::Int64 = 50
 	plotstep::Int64 = maxsteps ÷ maxplots
