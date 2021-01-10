@@ -32,7 +32,7 @@ N, typeof(N)
 html"<h4>τ, the time step for our discretized equation:</h4>"
 
 # ╔═╡ 86734650-52b2-11eb-34ef-e926ddb83096
-@bind τ html"<input type='range' min='0.000000000001' max='0.000000001' step='0.000000000005' value='0.0000000001'>"
+@bind τ html"<input type='range' min='0.000000000001' max='0.0000000006' step='0.000000000005' value='0.0000000001'>"
 
 # ╔═╡ 89a94400-52b2-11eb-1354-2da5b990bc13
 τ, typeof(τ)
@@ -81,10 +81,12 @@ end
 begin
 	nplot = Array{Float64, 2}(undef, N, maxplots)
 	tplot = Array{Float64, 1}(undef, maxplots)
-	iplot::Int64 = 1
-	for i ∈ 1:maxsteps # MAIN ALGORITHM - BCs are n[1]=n[N]=0
-		n[2:N-1] = (1 + C*τ)*n[2:N-1] .+ (D*τ/h^2)*(n[3:N] .+ n[1:N-2] .- 2n[2:N-1])
-		if i%plotstep == 0
+	local iplot::Int64 = 1
+	for i ∈ 1:maxsteps # MAIN FTCS ALGORITHM - BCs are n[1]=n[N]=0
+		n[2:N-1] = n[2:N-1] .+ 
+				 ( D*τ/h^2 )*( n[3:N] .+ n[1:N-2] .- 2n[2:N-1] ) .+
+				   C*τ*n[2:N-1]
+		if i%plotstep == 0 	# plotting occasionally
 			nplot[:, iplot] = copy(n)
 			tplot[iplot] = i*τ
 			iplot += 1
