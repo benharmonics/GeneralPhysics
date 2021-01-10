@@ -81,7 +81,7 @@ end
 begin
 	nplot = Array{Float64, 2}(undef, N, maxplots)
 	tplot = Array{Float64, 1}(undef, maxplots)
-	local iplot::Int64 = 1
+	iplot::Int64 = 1
 	for i ∈ 1:maxsteps # MAIN ALGORITHM
 		n[2:N-1] = (1 + C*τ)*n[2:N-1] .+ (D*τ/h^2)*(n[3:N] .+ n[1:N-2] .- 2n[2:N-1])
 		if i%plotstep == 0
