@@ -26,4 +26,4 @@ Then, to run and open a Pluto server in your default browser (using port 1234), 
 <code>import Pluto</code><br>
 <code>Pluto.run()</code>
 
-Pluto should open automatically in your default browser.
+Pluto should open automatically in your default browser. Then, you can actually just paste the URL for any one of these .jl files right into the file entry box.
