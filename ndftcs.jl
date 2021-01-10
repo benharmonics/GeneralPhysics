@@ -19,6 +19,9 @@ using Plots 	# plotting backend, takes a sec for first compile
 # ╔═╡ 54f41f50-530c-11eb-1a8e-0b08dda08164
 html"<h1>Neutron Diffusion</h1>"
 
+# ╔═╡ 7d8eb0c0-5329-11eb-0741-dfb9627d9ea9
+html"<i>Note:</i> the plotting backend, Plots.jl, takes a sec to compile; it's normal to take >30 seconds on first compile! 😳 Be patient! It's good!"
+
 # ╔═╡ 69894990-530c-11eb-225c-312d8636850a
 html"<h4>First N, the number of grid points:</h4>"
 
@@ -111,6 +114,7 @@ end
 
 # ╔═╡ Cell order:
 # ╟─54f41f50-530c-11eb-1a8e-0b08dda08164
+# ╟─7d8eb0c0-5329-11eb-0741-dfb9627d9ea9
 # ╟─69894990-530c-11eb-225c-312d8636850a
 # ╟─dc83a9b0-52b0-11eb-26f5-0d90caf487e5
 # ╠═76919200-52b2-11eb-3da1-6b26f1a52ec5
