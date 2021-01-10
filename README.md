@@ -1,7 +1,14 @@
-# DiffusionFTCS
-Using Forward in Time, Centered in Space algorithm to solve the diffusion equation.
+# General Physics
 
-Based on a project I did for my Computational Physics class in Spring 2019.
+Includes:
+
+## dftcs.jl
+Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
+
+## neutrondiff.jl
+Using Forward in Time, Centered in Space (FTCS) algorithm to solve the neutron diffusion equation (supercritical states).
+
+Based on projects I did for my Computational Physics class in Spring 2019.
 The text I used for reference during the class was <a href="https://github.com/AlejGarcia/NM4P">Numerical Methods for Physics</a> by <a href="http://www.algarcia.org/nummeth/Programs2E.html">Alejandro Garcia</a>.<br><br>
 <a href="http://web.cecs.pdx.edu/~gerry/class/ME448/lecture/pdf/FTCS_slides.pdf">Another useful reference</a>
 
