@@ -13,7 +13,7 @@ The text I used for reference during the class was <a href="https://github.com/A
 <a href="http://web.cecs.pdx.edu/~gerry/class/ME448/lecture/pdf/FTCS_slides.pdf">Another useful reference</a>
 
 <h4>Using Pluto.jl Notebooks</h4>
-Note that you will have to install Pluto and Plots in the package manager (Pkg) to actually compile these notebooks.
+Note that you will have to install Pluto.jl and Plots.jl in the package manager (Pkg) to actually compile these notebooks.
 
 In the Julia REPL (terminal):
 
