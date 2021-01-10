@@ -94,11 +94,11 @@ end
 
 # ╔═╡ 373273c0-5304-11eb-2ecf-5d731708e057
 contourf(tplot, xplot, nplot, title="Neutron Diffusion",
-		 xlabel="Time", ylabel="Position", c=:thermal)
+		 xlabel="time", ylabel="position", c=:thermal)
 
 # ╔═╡ fc5f0250-530c-11eb-15d9-bb6c5204bde9
 surface(tplot, xplot, nplot, c=:thermal, title="Neutron Diffusion",
-	    xlabel="Time", ylabel="Position", zlabel="Neutron Density", yticks=[])
+	    xlabel="Time", ylabel="Position", zlabel="Neutron Density")
 
 # ╔═╡ aa5c5bd0-530a-11eb-3b31-298cca0ffbf1
 @gif for i ∈ 1:maxplots
