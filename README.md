@@ -13,12 +13,13 @@ The text I used for reference during the class was <a href="https://github.com/A
 <a href="http://web.cecs.pdx.edu/~gerry/class/ME448/lecture/pdf/FTCS_slides.pdf">Another useful reference</a>
 
 <h4>Using Pluto.jl Notebooks</h4>
-Note that you will have to install Pluto in the Julia Package manager to use the <code>@bind</code> macro properly in a Pluto notebook.
+Note that you will have to install Pluto and Plots in the package manager (Pkg) to actually compile these notebooks.
 
 In the Julia REPL (terminal):
 
 <code>using Pkg</code><br>
 <code>Pkg.add("Pluto")</code><br>
+<code>Pkg.add("Plots")</code><br>
 (There are other ways to do this)
 
 Then, to run and open a Pluto server in your default browser (using port 1234), again in the Julia REPL:
