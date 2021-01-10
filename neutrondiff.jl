@@ -28,11 +28,11 @@ html"<h4>First N, the number of grid points:</h4>"
 # ╔═╡ 76919200-52b2-11eb-3da1-6b26f1a52ec5
 N, typeof(N)
 
-# ╔═╡ 86734650-52b2-11eb-34ef-e926ddb83096
-@bind τ html"<input type='range' min='0.000000000001' max='0.000000001' step='0.000000000005' value='0.0000000001'>"
-
 # ╔═╡ 7e14fdee-530c-11eb-2b26-c390d4d1997a
 html"<h4>τ, the time step for our discretized equation:</h4>"
+
+# ╔═╡ 86734650-52b2-11eb-34ef-e926ddb83096
+@bind τ html"<input type='range' min='0.000000000001' max='0.000000001' step='0.000000000005' value='0.0000000001'>"
 
 # ╔═╡ 89a94400-52b2-11eb-1354-2da5b990bc13
 τ, typeof(τ)
@@ -81,7 +81,7 @@ end
 begin
 	nplot = Array{Float64, 2}(undef, N, maxplots)
 	tplot = Array{Float64, 1}(undef, maxplots)
-	iplot::Int64 = 1
+	local iplot::Int64 = 1
 	for i ∈ 1:maxsteps # MAIN ALGORITHM
 		n[2:N-1] = (1 + C*τ)*n[2:N-1] .+ (D*τ/h^2)*(n[3:N] .+ n[1:N-2] .- 2n[2:N-1])
 		if i%plotstep == 0
@@ -111,8 +111,8 @@ end
 # ╟─69894990-530c-11eb-225c-312d8636850a
 # ╟─dc83a9b0-52b0-11eb-26f5-0d90caf487e5
 # ╠═76919200-52b2-11eb-3da1-6b26f1a52ec5
-# ╟─86734650-52b2-11eb-34ef-e926ddb83096
 # ╟─7e14fdee-530c-11eb-2b26-c390d4d1997a
+# ╟─86734650-52b2-11eb-34ef-e926ddb83096
 # ╠═89a94400-52b2-11eb-1354-2da5b990bc13
 # ╟─9a0fece0-530c-11eb-15bd-29ebb4adb032
 # ╠═b08dc730-52b2-11eb-1fc9-2d30b44c56a0
