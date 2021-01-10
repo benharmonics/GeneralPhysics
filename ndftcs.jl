@@ -43,7 +43,7 @@ html"<h4>Constants:</h4>"
 # ╔═╡ b08dc730-52b2-11eb-1fc9-2d30b44c56a0
 begin
 	# Diffusion constant, D, and Creation rate, C, for U-235
-	D::Float64 = 10^5 # m²/2
+	D::Float64 = 10^5 # m²/s
 	C::Float64 = 10^8 # 1/s
 	L::Float64 = 1.0  # m (length of our 1D space)
 	h::Float64 = L/(N-1) # grid spacing
@@ -62,7 +62,7 @@ html"<h4>The reaction will grow exponentially if the critical length, L_c, is le
 L_c = π*√(D/C)
 
 # ╔═╡ 6816eb50-5300-11eb-3800-8fa45133830b
-L > L_c 	# returns true if the reaction is supercritical
+L > L_c 	# returning true implies the reaction will be supercritical
 
 # ╔═╡ 65f6b782-530d-11eb-1105-c1ede0ba670a
 html"<h4>Finally we set up & execute our main FTCS algorithm:</h4>"
