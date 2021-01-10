@@ -45,7 +45,7 @@ begin
 	# Diffusion constant, D, and Creation rate, C, for U-235
 	D::Float64 = 10^5 # m²/2
 	C::Float64 = 10^8 # 1/s
-	L::Float64 = 1.0  # length of the bar
+	L::Float64 = 1.0  # m (length of our 1D space)
 	h::Float64 = L/(N-1) # grid spacing
 end
 
@@ -94,7 +94,7 @@ end
 
 # ╔═╡ 373273c0-5304-11eb-2ecf-5d731708e057
 contourf(tplot, xplot, nplot, title="Neutron Diffusion",
-		 xlabel="time", ylabel="position", c=:thermal)
+		 xlabel="Time", ylabel="Position", c=:thermal)
 
 # ╔═╡ fc5f0250-530c-11eb-15d9-bb6c5204bde9
 surface(tplot, xplot, nplot, c=:thermal, title="Neutron Diffusion",
