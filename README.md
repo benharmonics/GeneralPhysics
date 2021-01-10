@@ -1,6 +1,6 @@
 # General Physics
 
-Includes:
+Mostly (currently ONLY) Pluto.jl files, so you need Julia and Pluto to actually run them. Includes:
 
 ## dftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
