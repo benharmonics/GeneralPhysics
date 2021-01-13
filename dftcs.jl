@@ -60,12 +60,12 @@ html"<h2>Boundary and Initial Conditions</h2><p>The default boundary conditions 
 # ╔═╡ ce7218b0-4e56-11eb-1fa8-a3cf768be7cf
 begin
 	T = zeros(Float64, n)			# initialize temperature to zero everywhere
-	T[floor(Int8, n/2)] = 1.0/h 	# set delta spike in center of rod
-	xplot::Array{Float64, 1} = (0.0:n-1)*h .- L/2 	# record x pos of all grid points
+	T[n÷2] = 1.0/h 	# set delta spike in center of rod
+	xplot::Array{Float64, 1} = (0:h:L) .- L/2 	# record x pos of all grid points
 	iplot::Int64 = 1 				# counter used to count plots
 	maxsteps::Int64 = 300 			# maximum number of iterations
 	maxplots::Int64 = 50 			# number of snapshots to take
-	plotstep::Float64 = maxsteps/maxplots 	# number of time steps between snapshots
+	plotstep::Int64 = maxsteps÷maxplots 	# number of time steps between snapshots
 end
 
 # ╔═╡ 16ec2e9e-4e66-11eb-2f4b-453bf7b08cf8
@@ -99,7 +99,7 @@ surface(timeplot, xplot, Tplot,
 
 # ╔═╡ fb534f20-4e60-11eb-2300-25afc19ec21b
 @gif for i ∈ 1:maxplots
-	plot(xplot, Tplot[:, i], ylims=(0, Tplot[floor(Int8, n/2), 3]), 
+	plot(xplot, Tplot[:, i], ylims=(0, Tplot[n÷2, 3]), 
 		 lw=3, legend=false, title="Diffusion Over $(τ*maxsteps) Seconds", 
 		 xlabel="Position", ylabel="Temperature")
 end
