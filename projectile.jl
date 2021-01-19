@@ -118,7 +118,7 @@ b3.θ, rad2deg(b3.θ) # launched at 45° - 15°
 
 # ╔═╡ 1779f3f0-59d0-11eb-0b0d-2503afafab7d
 begin
-	scatter(xplot[1, :], yplot[1, :], xlims=(0, 100),
+	scatter(xplot[1, :], yplot[1, :], xlim=(0, 100), ylim=(0, 40),
 		label="θ=$(round(rad2deg(b1.θ), digits=3))°")
 	scatter!(xplot[2, :], yplot[2, :],
 		label="θ=$(round(rad2deg(b2.θ), digits=3))°")
