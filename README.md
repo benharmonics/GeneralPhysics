@@ -7,6 +7,10 @@ Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion
 
 ## ndftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the neutron diffusion equation (supercritical states).
+
+## projectile.jl
+Using Euler's Method to numerically calculate projectile motion of a ball launched at various angles.
+
 <hr>
 Based on projects I did for my Computational Physics class in Spring 2019.
 The text I used for reference during the class was <a href="https://github.com/AlejGarcia/NM4P">Numerical Methods for Physics</a> by <a href="http://www.algarcia.org/nummeth/Programs2E.html">Alejandro Garcia</a>.<br><br>
