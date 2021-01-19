@@ -71,8 +71,8 @@ end
 
 # ╔═╡ fdc4e570-5a13-11eb-126a-df201e5b7370
 begin
-	plot(tplot, xplot, label="Baboon Population")
-	plot!(tplot, yplot, label="Cheetah Population")
+	plot(tplot, xplot, label="Baboon Population", lw=2)
+	plot!(tplot, yplot, label="Cheetah Population", lw=2)
 	plot!(title="Lotka-Volterra Equations", 
 		xlabel="Time (years)", ylabel="Population")
 end
