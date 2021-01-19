@@ -109,10 +109,10 @@ html"<h5>This is what we expect; we launched the first ball at π/4 radians, and
 b1.θ, rad2deg(b1.θ) 	# first ball launched at 45°
 
 # ╔═╡ eca1d520-59df-11eb-2dc4-d9d2779b6bc3
-b1.θ - b2.θ, rad2deg(b1.θ - b2.θ) # launched at 45° + 15°
+b2.θ, rad2deg(b2.θ) # launched at 45° + 15°
 
 # ╔═╡ 2863fd40-59e0-11eb-16b5-991137d7867e
-b1.θ - b3.θ, rad2deg(b1.θ - b3.θ) # launched at 45° - 15°
+b3.θ, rad2deg(b3.θ) # launched at 45° - 15°
 
 # ╔═╡ 1779f3f0-59d0-11eb-0b0d-2503afafab7d
 begin
