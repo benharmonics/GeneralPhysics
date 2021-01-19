@@ -173,9 +173,13 @@ begin
 end
 
 # ╔═╡ c87d5f80-59e3-11eb-2fb2-dbaca4ee07f0
-plot(x, y, lw=5, color=:green, ylim=(0, 50), xlim=(0, 100),
-	title="Initial Launch at α=$(α)°", xlabel="Distance [m]", ylabel="Height [m]",
-	label="Distance traveled before landing: $(round(ball.distance, digits=2)) meters")
+begin
+	plot(x, y, lw=5, color=:green, ylim=(0, 50), xlim=(0, 100),
+		title="Initial Launch at α=$(α)°", xlabel="Distance [m]", ylabel="Height [m]",
+		label="")
+	scatter!([ball.distance], [.5], markersize=5, 
+		label="Flight distance: $(round(ball.distance, digits=2)) meters")
+end
 
 # ╔═╡ Cell order:
 # ╟─2e943e40-59d7-11eb-1b9c-b5ec5d9cf114
