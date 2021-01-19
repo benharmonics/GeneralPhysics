@@ -113,7 +113,7 @@ end
 
 # ╔═╡ 8950aca0-5a19-11eb-0e00-6f0f90f52a3f
 begin
-	plt = plot(title="Lotka-Volterra Phase Portrait",
+	plot(title="Lotka-Volterra Phase Portrait",
 			xlabel="Prey Population (Thousands)",
 			ylabel="Predator Population (Thousands)")
 	for (i, v) ∈ enumerate(0.9:0.1:1.8)
@@ -122,7 +122,6 @@ begin
 	xₛ::Float64 = 1.0 	# point of stability: xₛ=γ/δ=1/1
 	yₛ::Float64 = 0.5 	# point of stability: yₛ=α/β=(2/3)/(4/3)
 	scatter!([xₛ], [yₛ], label="Equlibrium ($(xₛ), $(yₛ))")
-	plt
 end
 
 # ╔═╡ Cell order:
