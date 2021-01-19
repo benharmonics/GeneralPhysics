@@ -52,10 +52,12 @@ function step!(b::Ball)
 	b.vy += b.ay*τ
 	b.x += b.vx*τ
 	b.y += b.vy*τ
-	if b.y <= 0 	# let's assume ball bounces perfectly elastically, for fun
-		b.y = -b.y
+	if b.y <= 0
+		b.y = -b.y # let's assume ball bounces perfectly elastically, for fun
 		b.vy = -b.vy
-		b.distance = b.x
+		if b.distance == Inf
+			b.distance = b.x
+		end
 	end
 end
 
@@ -106,7 +108,7 @@ b1.distance, b2.distance, b3.distance
 html"<h5>This is what we expect; we launched the first ball at π/4 radians, and the other two equidistant from it:</h5>"
 
 # ╔═╡ 55c72500-59d6-11eb-1274-8b6dfb43cfb9
-b1.θ, rad2deg(b1.θ) 	# first ball launched at 45°
+b1.θ, rad2deg(b1.θ) # first ball launched at 45°
 
 # ╔═╡ eca1d520-59df-11eb-2dc4-d9d2779b6bc3
 b2.θ, rad2deg(b2.θ) # launched at 45° + 15°
