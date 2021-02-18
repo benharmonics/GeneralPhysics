@@ -1,6 +1,6 @@
 # General Physics
 
-Mostly (currently ONLY) Pluto.jl files, so you need Julia and Pluto to actually run them. Includes:
+Mostly Pluto.jl files, so you need Julia and Pluto to actually run them. Includes:
 
 ## dftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
@@ -13,6 +13,12 @@ Using Euler's Method to numerically calculate projectile motion of a ball launch
 
 ## lotkavolterra.jl
 Using Euler's Method to numerically calculate predator-prey populations over time.
+
+# Labs
+Junior Lab write-ups, Spring 2021
+
+## PhotoelectricEffect.ipynb
+Using Pandas, Scipy to analyze photoelectric backcurrent to experimentally calculate the stopping potential for a range of wavelengths.
 
 <hr>
 Based on projects I did for my Computational Physics class in Spring 2019.
