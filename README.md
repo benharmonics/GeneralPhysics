@@ -1,6 +1,8 @@
 # General Physics
 
-Mostly Pluto.jl files, so you need Julia and Pluto to actually run them. Includes:
+The 'Labs' folder contains Jupyter notebooks used for analysis in my lab class from Spring 2021. They should be pretty informative.
+
+Besides that, there's just a lot of Pluto.jl files, so you need Julia and Pluto to actually run them. I'm gonna put em all on my website eventually. Includes:
 
 ## dftcs.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
