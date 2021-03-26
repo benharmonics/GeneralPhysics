@@ -19,6 +19,9 @@ Using Euler's Method to numerically calculate predator-prey populations over tim
 # Labs
 Junior Lab write-ups, Spring 2021
 
+## CriticalPoint.ipynb
+Observing a phase change of SF<sub>6</sub> and calculating numerical values for the critical point (temperature, pressure, volume) using a curve-fitting routine.
+
 ## PhotoelectricEffect.ipynb
 Using Pandas, Scipy to analyze photoelectric backcurrent to experimentally calculate the stopping potential for a range of wavelengths.
 
