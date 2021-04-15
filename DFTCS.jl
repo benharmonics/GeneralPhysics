@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.18
+# v0.14.1
 
 using Markdown
 using InteractiveUtils
@@ -42,10 +42,10 @@ html"<h2>Other Constants</h2>"
 
 # ╔═╡ 2c501530-4e53-11eb-1e54-5bd251d5eb4a
 begin
-	L::Float64 = 1.0 		# rod length
-	h::Float64 = L/(n-1)	# grid size
-	κ::Float64 = 1.0 		# diffusion coefficient
-	C::Float64 = κ*τ/h^2 	# solution expected to be stable for C <= 0.5
+L = 1.0 		# rod length
+h = L/(n-1)		# grid size
+κ = 1.0 		# diffusion coefficient
+C = κ*τ/h^2 	# solution expected to be stable for C <= 0.5
 end
 
 # ╔═╡ 2fbfd7d0-4e64-11eb-3760-bbbe56c86726
@@ -59,13 +59,13 @@ html"<h2>Boundary and Initial Conditions</h2><p>The default boundary conditions 
 
 # ╔═╡ ce7218b0-4e56-11eb-1fa8-a3cf768be7cf
 begin
-	T = zeros(Float64, n)			# initialize temperature to zero everywhere
-	T[n÷2] = 1.0/h 	# set delta spike in center of rod
-	xplot::Array{Float64, 1} = (0:h:L) .- L/2 	# record x pos of all grid points
-	iplot::Int64 = 1 				# counter used to count plots
-	maxsteps::Int64 = 300 			# maximum number of iterations
-	maxplots::Int64 = 50 			# number of snapshots to take
-	plotstep::Int64 = maxsteps÷maxplots 	# number of time steps between snapshots
+T = zeros(Float64, n)			# initialize temperature to zero everywhere
+T[n÷2] = 1.0/h 					# set delta spike in center of rod
+xplot = (0.0:n-1)*h .- L/2 		# record x pos of all grid points
+iplot = 1 						# counter used to count plots
+maxsteps = 300 					# maximum number of iterations
+maxplots = 50 					# number of snapshots to take
+plotstep = maxsteps÷maxplots 	# number of time steps between snapshots
 end
 
 # ╔═╡ 16ec2e9e-4e66-11eb-2f4b-453bf7b08cf8
@@ -73,17 +73,17 @@ html"<h2>Finally, the main step algorithm, FTCS:</h2>"
 
 # ╔═╡ f58d8300-4e59-11eb-31b1-0562ea25b172
 begin
-	Tplot = Array{Float64, 2}(undef, n, maxplots) # temperature, empty array
-	timeplot = Array{Float64, 1}(undef, maxplots) # time, empty array
-	for i ∈ 1:maxsteps #* MAIN STEP FUNCTION
-		T[2:n-1] = T[2:n-1] .+ C*( T[3:n] .+ T[1:n-2] .- 2T[2:n-1] )	# FTCS
-		# record temperature for plotting occasionally
-		if i % plotstep == 0
-			Tplot[:, iplot] = copy(T)
-			timeplot[iplot] = i*τ
-			iplot += 1
-		end
+Tplot = Array{AbstractFloat, 2}(undef, n, maxplots) # temperature, empty array
+timeplot = Array{AbstractFloat, 1}(undef, maxplots) # time, empty array
+for i ∈ 1:maxsteps #* MAIN STEP FUNCTION
+	T[2:n-1] = T[2:n-1] .+ C*( T[3:n] .+ T[1:n-2] .- 2T[2:n-1] )	# FTCS
+	# record temperature for plotting occasionally
+	if i % plotstep == 0
+		Tplot[:, iplot] = copy(T)
+		timeplot[iplot] = i*τ
+		iplot += 1
 	end
+end
 end
 
 # ╔═╡ 576758b0-4e6b-11eb-0164-53771aa2dabd
@@ -94,12 +94,12 @@ contourf(timeplot, xplot, Tplot, title="Temperature Diffusion",
 		 xlabel="Time", ylabel="Position", c=:thermal)
 
 # ╔═╡ 1d3e2010-4e6b-11eb-32bc-1785268babdf
-surface(timeplot, xplot, Tplot, 
-		xlabel="Time", ylabel="Position", zlabel="Temp", c=:thermal)
+surface(timeplot, xplot, Tplot, c=:thermal, 
+	xlabel="Time", ylabel="Position", zlabel="Temp")
 
 # ╔═╡ fb534f20-4e60-11eb-2300-25afc19ec21b
 @gif for i ∈ 1:maxplots
-	plot(xplot, Tplot[:, i], ylims=(0, Tplot[n÷2, 3]), 
+	plot(xplot, Tplot[:, i], ylims=(0, Tplot[floor(Int8, n/2), 3]), 
 		 lw=3, legend=false, title="Diffusion Over $(τ*maxsteps) Seconds", 
 		 xlabel="Position", ylabel="Temperature")
 end
