@@ -4,16 +4,19 @@ The 'Labs' folder contains Jupyter notebooks used for analysis in my lab class f
 
 Besides that, there's just a lot of Pluto.jl files, so you need Julia and Pluto to actually run them. I'm gonna put em all on my website eventually. Includes:
 
-## dftcs.jl
+## Advection.jl
+Using Lax, Lax-Wendorff and Forward in Time, Centered in Space (FTCS) algorithms to solve the advection equation.
+
+## Diffusion.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the diffusion equation.
 
-## ndftcs.jl
+## NeutronDiffusion.jl
 Using Forward in Time, Centered in Space (FTCS) algorithm to solve the neutron diffusion equation (supercritical states).
 
-## projectile.jl
+## Projectile.jl
 Using Euler's Method to numerically calculate projectile motion of a ball launched at various angles.
 
-## lotkavolterra.jl
+## LotkaVolterra.jl
 Using Euler's Method to numerically calculate predator-prey populations over time.
 
 # Labs
@@ -24,6 +27,9 @@ Observing a phase change of SF<sub>6</sub> and calculating numerical values for 
 
 ## PhotoelectricEffect.ipynb
 Using Pandas, Scipy to analyze photoelectric backcurrent to experimentally calculate the stopping potential for a range of wavelengths.
+
+## NMR.ipynb
+Fitting Nuclear Magnetic Resonance data to find the relaxation time and initial voltages for proton spins in a mineral oil solution.
 
 <hr>
 Based on projects I did for my Computational Physics class in Spring 2019.
