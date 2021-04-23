@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.3
+# v0.14.2
 
 using Markdown
 using InteractiveUtils
@@ -23,7 +23,7 @@ df[1:5, :]
 end
 
 # ╔═╡ 8c24fdc4-77d7-4d97-a617-f1cf12c9c469
-begin
+let
 plot(df[!, "Voltage"], df[!, "180C"], label="T=180°C", lw=2)
 plot!(df[!, "Voltage"], df[!, "195C"], label="T=195°C", lw=2)
 plot!(df[!, "Voltage"], df[!, "210C"], label="T=210°C", lw=2)
@@ -47,7 +47,9 @@ T₁[1:5, :], T₂[1:5, :], T₃[1:5, :]
 end
 
 # ╔═╡ d30c9e49-0d28-4882-93fd-9354dce62432
-html"<h4>Let's set up some naïve filtering functions to try and pick out maximum and minimum currents, and two corrective functions in case we miss:</h34>"
+html"
+<h4>We expect the energy difference between the first and second excited states of mercury to be about equal to the mean ΔE between the peaks of the curves.</h4>
+<h4>Let's set up some naïve filtering functions to try and pick out maximum and minimum currents, and two corrective functions in case we miss:</h4>"
 
 # ╔═╡ 5e945e11-869f-4040-af71-c79dd0351f60
 function argminima(v::Vector)::Vector
@@ -158,7 +160,7 @@ iminima = argminima(T₃.Current)
 correctminima!(iminima, T₃.Current)
 minvoltages = T₃[iminima, :Voltage]
 filter!(>(20), minvoltages) 			# a bit more trial and error
-filter!(∉([21.4, 23.6]), minvoltages)
+filter!(∉([21.4, 23.6]), minvoltages) 	# Specific to this dataset & filtering func
 filter!(>(20.2), maxvoltages)
 allminima[:hightemp] = minvoltages
 allmaxima[:hightemp] = maxvoltages
@@ -169,8 +171,17 @@ plot!(title="Current vs Voltage (210°C)", xlabel="Volts", ylabel="Nanoamperes")
 end
 
 # ╔═╡ fc26a4e5-1050-4d4d-97cb-2e2b4262d9cd
-html"<h2>Finding Eₐ (first excited energy of mercury)</h2>
-<h4>We expect the energy difference between the first and second excited states of mercury to be about equal to the mean ΔE:</h4>"
+html"<h3>Finding Eₐ (energy (eV) of the first excited energy of mercury)</h3>
+<b>From above: </b><i>We expect the energy difference between the first and second excited states of mercury to be about equal to the mean ΔE between peaks:</i>"
+
+# ╔═╡ 77f54490-4e74-4ba8-866a-9447a21c5b41
+let
+mins = allminima[:lowtemp]
+plot(T₁.Voltage, T₁.Current*10^9, lw=2, legend=false, xlabel="Volts", ylabel="nA")
+vline!(mins[2:5], linestyle=:dash)
+plot!(mins[3:4], [20, 20], lw=4) 	# short horizontal line
+annotate!(mins[3]+2.3, 22, "ΔE")
+end
 
 # ╔═╡ d20116e4-20e8-4f69-b965-924fd5e69027
 results = DataFrame(:Temperature => ["180°C", "195°C", "210°C"], :Eₐ => 0.0);
@@ -189,7 +200,7 @@ let
 # Find differences in voltages between peaks
 ΔE₁ = [α[i+1] - α[i] for i ∈ 1:(length(α)-1)] 
 ΔE₂ = [β[i+1] - β[i] for i ∈ 1:(length(β)-1)]
-# Recording results (Eₐ is mean of means of ΔE₁, ΔE₂)
+# Recording results (Eₐ is estimated to be the mean of means of ΔE₁, ΔE₂)
 results[1, :Eₐ] = mean([mean(ΔE₁), mean(ΔE₂)])
 ΔE₁, ΔE₂
 end
@@ -223,8 +234,16 @@ end
 # ╔═╡ 78669699-861e-4e3b-b405-88088b303285
 html"<h2>Thus:</h2>"
 
-# ╔═╡ 4a84abb7-01dc-43e6-9f38-c2a658d33d98
+# ╔═╡ b869706a-ea91-4e2d-884a-dba0a84334e2
+html"An accepted value of Eₐ is 4.86 eV:"
+
+# ╔═╡ b41620cf-1f7f-41d5-b086-25024fab8598
+let
+Eₐ = 4.86 	# eV
+results[!, :AbsoluteError] = results.Eₐ .- Eₐ
+results[!, :PercentError] = 100results.AbsoluteError / Eₐ
 results
+end
 
 # ╔═╡ Cell order:
 # ╟─6779c065-2fa6-4630-8263-65ce31f1488f
@@ -245,6 +264,7 @@ results
 # ╠═332f7f3e-af9b-4d2b-8e22-551d3cb49213
 # ╠═2dd9a2c7-5279-4c5f-9c02-9f006f8fff3e
 # ╟─fc26a4e5-1050-4d4d-97cb-2e2b4262d9cd
+# ╠═77f54490-4e74-4ba8-866a-9447a21c5b41
 # ╠═d20116e4-20e8-4f69-b965-924fd5e69027
 # ╠═64961f92-6ab1-49d2-9eb2-53bf92f986df
 # ╟─7f7ab7a9-39a9-4954-bbd0-7ad4210c6c1a
@@ -254,4 +274,5 @@ results
 # ╟─0cd63574-2afc-43e1-a02f-4ec8eb3d70bc
 # ╠═39b549f1-7ef6-41e8-9211-ea1266b347c5
 # ╟─78669699-861e-4e3b-b405-88088b303285
-# ╠═4a84abb7-01dc-43e6-9f38-c2a658d33d98
+# ╟─b869706a-ea91-4e2d-884a-dba0a84334e2
+# ╠═b41620cf-1f7f-41d5-b086-25024fab8598
