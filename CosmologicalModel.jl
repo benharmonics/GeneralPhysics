@@ -18,7 +18,7 @@ using Plots
 
 # ╔═╡ 44427f8f-4a65-44da-9062-cce6e75e2569
 html"<h1>Modeling the Scale Factor</h1>
-The acceleration equation is given by<br>"
+The acceleration equation is given by"
 
 # ╔═╡ ecd37f62-bc2d-4256-95e9-b29424a246d6
 md"``(\frac{ä}{a})² = -\frac{4πG}{3c²} (ϵ(t) + 3P(t)) + \frac{Λ}{3}``"
@@ -31,8 +31,7 @@ Assume the energy density is dominated by non-relativistic matter, i.e. ``ϵ ≈
 md"For this case, ``ρ(t) ≈ ρ₀(a(t)=a₀)^{-3}``, where ``a₀ = 1`` is the scale factor of the universe today (when ``t = t₀``)."
 
 # ╔═╡ 316b59fa-ead6-4a1a-ab2f-c2ded137a0f2
-md"
-The critical density ``ρ_{crit} = \frac{3H₀²}{8πG}``."
+md"Recall that the critical density ``ρ_{crit} = \frac{3H₀²}{8πG}``."
 
 # ╔═╡ 9cee1d18-0442-4dae-9e80-de38caa6163c
 html"Thus:"
@@ -129,7 +128,7 @@ md"For each model, finding the ``y`` value at which ``a(y)=0`` will determine th
 izeros = [findfirst(≥(0), aplot[:, i]) for i ∈ 1:3]
 
 # ╔═╡ 729c98bd-18a6-4395-abea-e21d899a9324
-yzeros = [yplot[i] for i ∈ izeros]
+yzeros = [yplot[izero] for izero ∈ izeros]
 
 # ╔═╡ d82029ce-8163-4de2-bdac-6ffa0a867580
 let
@@ -252,5 +251,5 @@ end
 # ╠═4b8b8af4-2940-40c9-be7b-2743c85b79ac
 # ╟─d7d10fdf-a202-4b1d-a401-d2606fbb2817
 # ╠═cbf27243-05d8-44e2-a764-97e97ddbda19
-# ╠═5687f633-f671-4e90-bf73-12e5e26a3446
+# ╟─5687f633-f671-4e90-bf73-12e5e26a3446
 # ╠═65ebaec8-facf-4c8e-8a93-b5d4cd239233
